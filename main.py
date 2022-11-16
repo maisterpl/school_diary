@@ -73,4 +73,34 @@ for i in lesson_students_and_assesment_1:
 
 print("=" * 200, "\n")
 
+print("\nTest function which print name of lesson and assessments:")
+school_one.lesson_students_and_assesment_print("Math")
+school_one.lesson_students_and_assesment_print("Physic")
+school_one.lesson_students_and_assesment_print("Poland")
 
+print("\nTest function to add student from school class:")
+school_one.add_student_to_class(name='Monika', subname='Jakastam', pesel=88949400477)
+school_one.add_student_to_class(name='Monika', subname='Jakastam', pesel=88949400477, name_of_class='class_1B')
+school_one.print_all_students()
+print()
+
+# test return all assessments from one student
+print(school_one.ALL_CLASS[1].get_student_assessments(pesel=88021300159))
+
+# test add_lesson to class
+print(school_one.ALL_CLASS[1].LESSONS)
+school_one.ALL_CLASS[1].add_lesson('Geogephy')
+school_one.ALL_CLASS[1].add_lesson('Math')
+school_one.ALL_CLASS[1].add_lesson('Physic')
+print(school_one.ALL_CLASS[1].LESSONS)
+print(school_one.ALL_CLASS[1].STUDENTS)
+print(school_one.ALL_CLASS[1].get_all_student_assessments_from_class())
+print(school_one.ALL_CLASS[0].get_all_student_assessments_from_class())
+school_one.ALL_CLASS[0].add_lesson('Geogephy')
+school_one.ALL_CLASS[0].add_lesson('Math')
+school_one.ALL_CLASS[0].add_lesson('Physic')
+print(school_one.ALL_CLASS[0].get_all_student_assessments_from_class())
+
+# test method which get all students which lern lesson and return it whith
+# assessments
+print(school_one.get_all_students_which_lern_lesson("Math"))
