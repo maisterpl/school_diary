@@ -13,10 +13,11 @@ class Lesson():
 
 
 class Person():
-    def __init__(self, name: str, subname: str, pesel: int = 0) -> None:
+    def __init__(self, name: str, subname: str, pesel: int = 0, gender: str = '') -> None:
         self.name = name
         self.subname = subname
         self.pesel = pesel
+        self.gender = gender
     
     def __str__(self) -> str:
         return f"{ self.name } { self.subname }."
@@ -62,6 +63,9 @@ class Class():
 
     def __str__(self) -> str:
         return f"Name of class: \"{ self.name_of_class }\"."
+    
+    def get_all_students_from_class(self):
+        return [ [ s.name, s.subname, s.pesel] for s in self.STUDENTS ]
 
     def add_student(self, name: str, subname: str, pesel: int):
         self.STUDENTS.append(Student(name, subname, pesel))
@@ -98,6 +102,9 @@ class School():
     def make_class(self, name_of_class: str):
         name_of_class = Class(name_of_class)
         self.ALL_CLASS.append(name_of_class)
+        
+    def get_all_classes_name(self):
+        return [None] + [c.name_of_class for c in self.ALL_CLASS]
         
     def add_student_to_class(self, name: str, subname: str, pesel: int, name_of_class: str = ''):
         if name_of_class == '':

@@ -1,4 +1,5 @@
-from Persons import Teacher, Class, Lesson, Student, School
+from School import Teacher, Class, Lesson, Student, School
+from main_2_db_test import School_to_database
 
 teacher = Teacher("Krzysztof", "Kotowicz")
 
@@ -104,3 +105,6 @@ print(school_one.ALL_CLASS[0].get_all_student_assessments_from_class())
 # test method which get all students which lern lesson and return it whith
 # assessments
 print(school_one.get_all_students_which_lern_lesson("Math"))
+
+# export school class to database
+school_to_database = School_to_database('school_in_database.db', school_one)
