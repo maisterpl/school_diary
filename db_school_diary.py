@@ -12,12 +12,14 @@ class Database:
         self.cursor.execute(sql)
         self.connection.commit()
         
-    def insert(self, table, values):
-        print('*Values: ', *values)
-        print('Values: ', values)
-        print('Values tuple: ', tuple(values))
-        print(','.join(['?' for _ in values]))
-        self.cursor.execute(f"INSERT INTO { table } VALUES ({ ','.join(['?' for _ in values]) })", values)
+    def insert(self, table, *values):
+        # print(f"INSERT INTO { table } VALUES ({ ','.join(['?' for _ in values]) })")
+        self.cursor.execute(f"INSERT OR IGNORE INTO { table } VALUES ( { ','.join(['?' for _ in values]) } )", values)
+        self.connection.commit()
+
+    def insert_students_to_class(self, table, values):
+        # print(f"INSERT INTO { table } VALUES ({ ','.join(['?' for _ in values]) })")
+        self.cursor.execute(f"""INSERT OR IGNORE INTO { table } VALUES ( { ','.join(['?' for _ in values]) } )""", values)
         self.connection.commit()
         
     def fetch_all(self, table, **conditions):
