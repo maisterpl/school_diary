@@ -104,7 +104,7 @@ class School():
         self.ALL_CLASS.append(name_of_class)
         
     def get_all_classes_name(self):
-        return [None] + [c.name_of_class for c in self.ALL_CLASS]
+        return [c.name_of_class for c in self.ALL_CLASS]
         
     def add_student_to_class(self, name: str, subname: str, pesel: int, name_of_class: str = ''):
         if name_of_class == '':
