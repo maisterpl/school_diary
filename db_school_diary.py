@@ -43,11 +43,6 @@ class Database:
         except sqlite3.Error as error:
             print("Failed to update rows of sqlite table: ", error)
         
-    def fetch_all(self, table, **conditions):
-        # "SELECT * FROM urls WHERE category=?", category
-        # "SELECT * FROM urls where first_name AND last_name", (first_name, last_name)
-        return self.cursor.execute(
-            f"SELECT * FROM { table } WHERE { ' and '.join([f'{ condition }=?' for condition in conditions]) }",
-            list(conditions.values())
-        )
+    def fetch_all(self, table):
+        return self.cursor.execute(f"SELECT * FROM {table}")
         
