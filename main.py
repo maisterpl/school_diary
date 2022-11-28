@@ -1,5 +1,5 @@
 from School import Teacher, Class, Lesson, Student, School
-from main_2_db_test import School_to_database
+from import_and_export_to_database import School_to_database
 
 teacher = Teacher("Krzysztof", "Kotowicz")
 
@@ -107,4 +107,10 @@ print(school_one.ALL_CLASS[0].get_all_student_assessments_from_class())
 print(school_one.get_all_students_which_lern_lesson("Math"))
 
 # export school class to database
+school_to_database = School_to_database('school_in_database.db', school_one)
+school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 88021300999)
+school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 88021300979)
+school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 89021300129)
+school_to_database = School_to_database('school_in_database.db', school_one)
+school_one.ALL_CLASS[0].add_student("Jakub", "Nadzieja", 21120600599)
 school_to_database = School_to_database('school_in_database.db', school_one)

@@ -19,8 +19,29 @@ class Database:
 
     def insert_students_to_class(self, table, values):
         # print(f"INSERT INTO { table } VALUES ({ ','.join(['?' for _ in values]) })")
-        self.cursor.execute(f"""INSERT OR IGNORE INTO { table } VALUES ( { ','.join(['?' for _ in values]) } )""", values)
+        self.cursor.execute(f"""INSERT OR IGNORE INTO { table }
+                                (id, student_name, student_subname, student_pesel)
+                                VALUES ( { ','.join(['?' for _ in values]) } )""", values)
         self.connection.commit()
+
+    def alter_table_add_new_column_to_table(self, table, lesson):
+        try:
+            self.cursor.execute(f"""ALTER TABLE { table } ADD COLUMN 
+                                    { lesson } TEXT
+            """)
+            self.connection.commit()
+        except:
+            pass
+
+    def update_students_assessments(self, table, pesel, lesson, assessments):
+        try:
+            tuple_assessments = (','.join([str(x) for x in assessments]))
+            tuple_to_db = []
+            tuple_to_db.append(tuple_assessments)
+            self.cursor.execute(f"update { table } set { lesson }=? WHERE student_pesel={ pesel }", tuple_to_db)
+            self.connection.commit()
+        except sqlite3.Error as error:
+            print("Failed to update rows of sqlite table: ", error)
         
     def fetch_all(self, table, **conditions):
         # "SELECT * FROM urls WHERE category=?", category
