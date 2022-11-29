@@ -115,3 +115,12 @@ school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 89021300129)
 school_to_database = School_to_database('school_in_database.db', school_one)
 school_one.ALL_CLASS[0].add_student("Jakub", "Nadzieja", 21120600599)
 school_to_database = School_to_database('school_in_database.db', school_one)
+
+print('=' * 200)
+print(school_one.name_of_school)
+print(school_to_database.print_db_from_current_table(school_one.name_of_school))
+print(school_to_database.print_db_from_current_table(school_one.ALL_CLASS[0].name_of_class))
+
+print(school_one.ALL_CLASS[0].STUDENTS[2].get_name_of_student())
+print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_SUBJECTS_TO_LERN)
+print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_ASSESSMENTS)
