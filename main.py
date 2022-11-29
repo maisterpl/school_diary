@@ -47,7 +47,7 @@ school_one.ALL_CLASS[1].add_student("Marcin", "Najman", 88021300159)
 print(school_one.ALL_CLASS[1].STUDENTS[1])
 print(school_one.ALL_CLASS[1].STUDENTS[1].SCHOOL_SUBJECTS_TO_LERN)
 print(school_one.ALL_CLASS[1].STUDENTS[1].SCHOOL_ASSESSMENTS)
-school_one.ALL_CLASS[1].STUDENTS[1].add_subject_to_lern("Poland")
+school_one.ALL_CLASS[1].add_lesson("Poland")
 print(school_one.ALL_CLASS[1].STUDENTS[1].SCHOOL_SUBJECTS_TO_LERN)
 print(school_one.ALL_CLASS[1].STUDENTS[1].SCHOOL_ASSESSMENTS)
 school_one.ALL_CLASS[1].STUDENTS[1].add_assessments_to_lesson("Poland", 1)
@@ -107,18 +107,11 @@ print(school_one.ALL_CLASS[0].get_all_student_assessments_from_class())
 print(school_one.get_all_students_which_lern_lesson("Math"))
 
 # export school class to database
+
 school_to_database = School_to_database('school_in_database.db', school_one)
 school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 88021300999)
 school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 88021300979)
 school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 89021300129)
 school_to_database = School_to_database('school_in_database.db', school_one)
 school_one.ALL_CLASS[0].add_student("Jakub", "Nadzieja", 21120600599)
-school_to_database = School_to_database('school_in_database.db', school_one)
-
-
-print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_ASSESSMENTS)
-school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 5)
-school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 4.5)
-school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 2.5)
-print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_ASSESSMENTS)
 school_to_database = School_to_database('school_in_database.db', school_one)

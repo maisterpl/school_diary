@@ -42,7 +42,11 @@ class School_to_database:
                 for lesson in student.SCHOOL_ASSESSMENTS.keys():
                     self.database.update_students_assessments(class_s.name_of_class, student.pesel, lesson, student.SCHOOL_ASSESSMENTS[lesson])
         
-    
+    def print_db_from_current_table(self, table):
+        table = table.replace(' ', '_')
+        data = self.database.fetch_all(table)
+        for i in data:
+            print(i)
 
 
     
