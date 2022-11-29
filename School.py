@@ -68,7 +68,10 @@ class Class():
         return [ [ s.name, s.subname, s.pesel] for s in self.STUDENTS ]
 
     def add_student(self, name: str, subname: str, pesel: int):
-        self.STUDENTS.append(Student(name, subname, pesel))
+        student = Student(name, subname, pesel)
+        self.STUDENTS.append(student)
+        for lesson in self.LESSONS:
+            student.add_subject_to_lern(lesson.get_name_of_lesson())
 
     def add_teacher(self, name: str, subname: str, pesel: int):
         self.name_of_teacher = name + '_' + subname

@@ -114,3 +114,11 @@ school_one.ALL_CLASS[1].add_student("Maksymilnian", "Dobrodziej", 89021300129)
 school_to_database = School_to_database('school_in_database.db', school_one)
 school_one.ALL_CLASS[0].add_student("Jakub", "Nadzieja", 21120600599)
 school_to_database = School_to_database('school_in_database.db', school_one)
+
+
+print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_ASSESSMENTS)
+school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 5)
+school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 4.5)
+school_one.ALL_CLASS[0].STUDENTS[2].add_assessments_to_lesson('Geogephy', 2.5)
+print(school_one.ALL_CLASS[0].STUDENTS[2].SCHOOL_ASSESSMENTS)
+school_to_database = School_to_database('school_in_database.db', school_one)
